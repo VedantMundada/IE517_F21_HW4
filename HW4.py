@@ -113,6 +113,16 @@ plt.legend()
 plt.xlabel('Alpha Values')
 plt.ylabel('Acuracy')
 plt.show()
+
+plt.scatter(y_pred_train_rid,y_pred_train_rid-y_train_ssc,c='steelblue',marker='o',edgecolor='white',label='Training Data')
+plt.scatter(y_pred_rid,y_pred_rid-y_test_ssc,c='limegreen',marker='s',edgecolor='white',label='Training Data')
+plt.xlabel('Predicted Values')
+plt.ylabel('Residuals')
+plt.legend(loc='upper left')
+plt.hlines(y=0,xmin = -3,xmax = 2 , color='black', lw=2)
+plt.xlim([-3,2])
+plt.title("Residuals for the RIdge regression")
+plt.show()
 #%%
 from sklearn.linear_model import Lasso
 lasso = Lasso(alpha=0.0001,normalize=True)
@@ -157,7 +167,15 @@ plt.xlabel('Alpha Values')
 plt.ylabel('Acuracy')
 plt.show()
 
-
+plt.scatter(y_pred_train_las,y_pred_train_las-y_train_ssc,c='steelblue',marker='o',edgecolor='white',label='Training Data')
+plt.scatter(y_pred_las,y_pred_las-y_test_ssc,c='limegreen',marker='s',edgecolor='white',label='Training Data')
+plt.xlabel('Predicted Values')
+plt.ylabel('Residuals')
+plt.legend(loc='upper left')
+plt.hlines(y=0,xmin = -3,xmax = 2 , color='black', lw=2)
+plt.xlim([-3,2])
+plt.title("Residuals for the Lasso regression")
+plt.show()
 #%%
 
 def lin_regplot(X,y,model):
